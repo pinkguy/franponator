@@ -154,12 +154,12 @@ textC[61] = "Parler"
 
 -- print( textA[ math.random( #textA ) ] )
 
-
-
-function playdate.update ()
     -- put above to avoid constant update
     -- need to find a way to clear the text and add it under condition like crank
 	playdate.graphics.drawText(textA[ math.random( #textA ) ], 100, 100)
     playdate.graphics.drawText(textB[ math.random( #textB ) ], 100, 120)
     playdate.graphics.drawText(textC[ math.random( #textC ) ], 100, 140)
+
+function playdate.update ()
+
 end
