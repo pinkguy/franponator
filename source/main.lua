@@ -157,9 +157,9 @@ textC[61] = "Parler"
 
 function playdate.cranked()
             playdate.graphics.clear()
-            playdate.graphics.drawText(textA[ math.random( #textA ) ], 100, 100)
-            playdate.graphics.drawText(textB[ math.random( #textB ) ], 100, 120)
-            playdate.graphics.drawText(textC[ math.random( #textC ) ], 100, 140)
+            playdate.graphics.drawText(textA[math.random(#textA)], 100, 100)
+            playdate.graphics.drawText(textB[math.random(#textB)], 100, 120)
+            playdate.graphics.drawText(textC[math.random(#textC)], 100, 140)
       end
 
 function playdate.update ()
