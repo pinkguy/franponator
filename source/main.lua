@@ -3,10 +3,12 @@ import "CoreLibs/sprites"
 import "CoreLibs/timer"
 import "CoreLibs/object"
 
+-- declaring tables to compose the sentence
 local textA = {}
 local textB = {}
 local textC = {}
 
+--listing of French words for textA
 textA[1] = "Cafe"
 textA[2] = "Vivre"
 textA[3] = "Champ"
@@ -74,6 +76,7 @@ textA[64] = "Beau"
 textA[65] = "Partouze"
 textA[66] = "Chie"
 
+--listing of French words for textB
 textB[1] = "a"
 textB[2] = "de"
 textB[3] = "pour"
@@ -89,6 +92,7 @@ textB[12] = "ce"
 textB[13] = "avec"
 textB[14] = "sous"
 
+--listing of French words for textC
 textC[1] = "bisou"
 textC[2] = "cocorico"
 textC[3] = "pierrot"
@@ -151,13 +155,13 @@ textC[59] = "Chatte"
 textC[60] = "Pine"
 textC[61] = "Parler"
 
-function playdate.leftButtonDown()
-        playdate.graphics.clear()
-        playdate.graphics.drawText(textA[ math.random( #textA ) ], 100, 100)
-        playdate.graphics.drawText(textB[ math.random( #textB ) ], 100, 120)
-        playdate.graphics.drawText(textC[ math.random( #textC ) ], 100, 140)
+function playdate.AButtonDown()
+            playdate.graphics.clear()
+            playdate.graphics.drawText(textA[ math.random( #textA ) ], 100, 100)
+            playdate.graphics.drawText(textB[ math.random( #textB ) ], 100, 120)
+            playdate.graphics.drawText(textC[ math.random( #textC ) ], 100, 140)
       end
 
-    function playdate.update ()
-        
+function playdate.update ()
+
     end
