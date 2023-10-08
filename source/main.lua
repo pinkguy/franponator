@@ -151,15 +151,13 @@ textC[59] = "Chatte"
 textC[60] = "Pine"
 textC[61] = "Parler"
 
+function playdate.leftButtonDown()
+        playdate.graphics.clear()
+        playdate.graphics.drawText(textA[ math.random( #textA ) ], 100, 100)
+        playdate.graphics.drawText(textB[ math.random( #textB ) ], 100, 120)
+        playdate.graphics.drawText(textC[ math.random( #textC ) ], 100, 140)
+      end
 
--- print( textA[ math.random( #textA ) ] )
-
-    -- put above to avoid constant update
-    -- need to find a way to clear the text and add it under condition like crank
-	playdate.graphics.drawText(textA[ math.random( #textA ) ], 100, 100)
-    playdate.graphics.drawText(textB[ math.random( #textB ) ], 100, 120)
-    playdate.graphics.drawText(textC[ math.random( #textC ) ], 100, 140)
-
-function playdate.update ()
-
-end
+    function playdate.update ()
+        
+    end
