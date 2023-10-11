@@ -3,6 +3,9 @@ import "CoreLibs/sprites"
 import "CoreLibs/timer"
 import "CoreLibs/object"
 
+-- lookUp all fonts folder content and store it as variable
+local randomFonts = playdate.file.listFiles("fonts/")
+
 -- declaring tables to compose the sentence
 local textA = {}
 local textB = {}
@@ -155,8 +158,12 @@ textC[59] = "Chatte"
 textC[60] = "Pine"
 textC[61] = "Parler"
 
+local myTable = { randomFonts }
+
+-- compose the sentence when crank turned
 function playdate.cranked()
             playdate.graphics.clear()
+            print( myTable[ math.random( #myTable ) ] )
             playdate.graphics.drawText(textA[math.random(#textA)], 100, 100)
             playdate.graphics.drawText(textB[math.random(#textB)], 100, 120)
             playdate.graphics.drawText(textC[math.random(#textC)], 100, 140)
