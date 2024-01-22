@@ -4,7 +4,15 @@ import "CoreLibs/timer"
 import "CoreLibs/object"
 
 -- lookUp all fonts folder content and store it as variable
-local randomFonts = playdate.file.listFiles("fonts/")
+-- local randomFonts = playdate.file.listFiles("fonts/")
+-- playdate.graphics.font.new("fonts/Asterix.fnt")
+
+
+
+local Asterix = playdate.graphics.font.load("fonts/Asterix.fnt")
+local MarbleMadness = playdate.graphics.font.load("fonts/MarbleMadness.fnt")
+
+
 
 -- declaring tables to compose the sentence
 local textA = {}
@@ -158,16 +166,19 @@ textC[59] = "Chatte"
 textC[60] = "Pine"
 textC[61] = "Parler"
 
-local myTable = { randomFonts }
+playdate.graphics.setFont(Asterix)
+playdate.graphics.drawText("Text with Font 1", 10, 10)
+
 
 -- compose the sentence when crank turned
 function playdate.cranked()
             playdate.graphics.clear()
-            print( myTable[ math.random( #myTable ) ] )
             playdate.graphics.drawText(textA[math.random(#textA)], 100, 100)
             playdate.graphics.drawText(textB[math.random(#textB)], 100, 120)
             playdate.graphics.drawText(textC[math.random(#textC)], 100, 140)
       end
+
+
 
 function playdate.update ()
 
