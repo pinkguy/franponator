@@ -162,8 +162,6 @@ textC[59] = "Chatte"
 textC[60] = "Pine"
 textC[61] = "Parler"
 
-playdate.graphics.drawText("Hello, Playdate!", 10, 10)
-
 -- compose the sentence when crank turned
 function playdate.cranked()
             playdate.graphics.clear()
