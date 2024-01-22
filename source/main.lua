@@ -7,12 +7,8 @@ import "CoreLibs/object"
 -- local randomFonts = playdate.file.listFiles("fonts/")
 -- playdate.graphics.font.new("fonts/Asterix.fnt")
 
-
-
 local Asterix = playdate.graphics.font.load("fonts/Asterix.fnt")
-local MarbleMadness = playdate.graphics.font.load("fonts/MarbleMadness.fnt")
-
-
+playdate.graphics.setFont(Asterix)
 
 -- declaring tables to compose the sentence
 local textA = {}
@@ -166,9 +162,7 @@ textC[59] = "Chatte"
 textC[60] = "Pine"
 textC[61] = "Parler"
 
-playdate.graphics.setFont(Asterix)
-playdate.graphics.drawText("Text with Font 1", 10, 10)
-
+playdate.graphics.drawText("Hello, Playdate!", 10, 10)
 
 -- compose the sentence when crank turned
 function playdate.cranked()
