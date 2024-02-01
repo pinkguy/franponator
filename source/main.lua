@@ -3,13 +3,20 @@ import "CoreLibs/sprites"
 import "CoreLibs/timer"
 import "CoreLibs/object"
 
--- lookUp all fonts folder content and store it as variable
--- local randomFonts = playdate.file.listFiles("fonts/")
--- playdate.graphics.font.new("fonts/Asterix.fnt")
+local fontPaths = {
+      "fonts/ST-DIN",
+      "fonts/Asterix",
+      "fonts/Blades",
+      "fonts/Firebeast",
+      "fonts/Steel",
+      "fonts/Virtua",
+      -- Add as many fonts as you have
+  }
 
-local Din = playdate.graphics.font.new("fonts/ST-DIN.fnt")
-
-
+local function getRandomFont()
+      local randomIndex = math.random(#fontPaths)
+      return playdate.graphics.font.new(fontPaths[randomIndex])
+end
 
 -- declaring tables to compose the sentence
 local textA = {}
@@ -164,14 +171,16 @@ textC[60] = "Pine"
 textC[61] = "Parler"
 
 
-
 -- compose the sentence when crank turned
 function playdate.cranked()
-      playdate.graphics.setFont(Din)
       playdate.graphics.clear()
+      local randomFont = getRandomFont()
+      playdate.graphics.setFont(randomFont)
       local randomText = textA[math.random(#textA)] .. " " .. textB[math.random(#textB)] .. " " .. textC[math.random(#textC)]
       playdate.graphics.drawText(randomText, 125, 100)
-  end
+
+      end
+
 
 function playdate.update ()
 
