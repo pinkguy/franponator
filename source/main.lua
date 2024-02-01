@@ -8,6 +8,7 @@ import "CoreLibs/object"
 -- playdate.graphics.font.new("fonts/Asterix.fnt")
 
 local Asterix = playdate.graphics.font.new("fonts/Asterix.fnt")
+playdate.graphics.setFont(Asterix)
 
 
 -- declaring tables to compose the sentence
@@ -162,17 +163,15 @@ textC[59] = "Chatte"
 textC[60] = "Pine"
 textC[61] = "Parler"
 
+
+
 -- compose the sentence when crank turned
 function playdate.cranked()
-            playdate.graphics.setFont(Asterix)
-            playdate.graphics.clear()
-            playdate.graphics.drawText(textA[math.random(#textA)], 100, 100)
-            playdate.graphics.drawText(textB[math.random(#textB)], 100, 120)
-            playdate.graphics.drawText(textC[math.random(#textC)], 100, 140)
-      end
-
-
+      playdate.graphics.clear()
+      local randomText = textA[math.random(#textA)] .. " " .. textB[math.random(#textB)] .. " " .. textC[math.random(#textC)]
+      playdate.graphics.drawText(randomText, 125, 100)
+  end
 
 function playdate.update ()
 
-    end
+      end
