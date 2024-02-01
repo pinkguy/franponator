@@ -7,8 +7,8 @@ import "CoreLibs/object"
 -- local randomFonts = playdate.file.listFiles("fonts/")
 -- playdate.graphics.font.new("fonts/Asterix.fnt")
 
-local Asterix = playdate.graphics.font.new("fonts/Asterix.fnt")
-playdate.graphics.setFont(Asterix)
+local Din = playdate.graphics.font.new("fonts/ST-DIN.fnt")
+
 
 
 -- declaring tables to compose the sentence
@@ -167,6 +167,7 @@ textC[61] = "Parler"
 
 -- compose the sentence when crank turned
 function playdate.cranked()
+      playdate.graphics.setFont(Din)
       playdate.graphics.clear()
       local randomText = textA[math.random(#textA)] .. " " .. textB[math.random(#textB)] .. " " .. textC[math.random(#textC)]
       playdate.graphics.drawText(randomText, 125, 100)
