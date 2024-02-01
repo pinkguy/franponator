@@ -3,6 +3,12 @@ import "CoreLibs/sprites"
 import "CoreLibs/timer"
 import "CoreLibs/object"
 
+-- Delay in milliseconds (e.g., 1000ms = 1 second)
+local crankDelay = 500 
+
+-- Variable to keep track of the last crank time
+local lastCrankTime = 0
+
 local fontPaths = {
       "fonts/ST-DIN",
       "fonts/Asterix",
@@ -112,7 +118,7 @@ textC[1] = "bisou"
 textC[2] = "cocorico"
 textC[3] = "pierrot"
 textC[4] = "peau"
-textC[5] = "rendez-vous"
+textC[5] = "rendez vous"
 textC[6] = "Chocolat"
 textC[7] = "delicieux"
 textC[8] = "bijou"
@@ -158,11 +164,11 @@ textC[47] = "coin coin"
 textC[48] = "saucisse"
 textC[49] = "cassoulet"
 textC[50] = "bouillabaisse"
-textC[51] = "tete-de-veau"
-textC[52] = "pot-au-feu"
+textC[51] = "tete de veau"
+textC[52] = "pot au feu"
 textC[53] = "provence"
 textC[54] = "Montparnasse"
-textC[55] = "Saint-Germain"
+textC[55] = "Saint Germain"
 textC[56] = "Ourse"
 textC[57] = "bite"
 textC[58] = "Cancer"
@@ -173,15 +179,23 @@ textC[61] = "Parler"
 
 -- compose the sentence when crank turned
 function playdate.cranked()
+      local currentTime = playdate.getCurrentTimeMilliseconds()
+
+    if currentTime - lastCrankTime > crankDelay then
       playdate.graphics.clear()
       local randomFont = getRandomFont()
       playdate.graphics.setFont(randomFont)
       local randomText = textA[math.random(#textA)] .. " " .. textB[math.random(#textB)] .. " " .. textC[math.random(#textC)]
-      playdate.graphics.drawText(randomText, 125, 100)
-
-      end
+      local textWidth, textHeight = playdate.graphics.getTextSize(randomText)
+      -- Calculate the x and y coordinates to center the text
+      local x = (400 - textWidth) / 2
+      local y = (240 - textHeight) / 2
+      playdate.graphics.drawText(randomText, x, y)
+      lastCrankTime = currentTime
+    end
+end
 
 
 function playdate.update ()
 
-      end
+end
