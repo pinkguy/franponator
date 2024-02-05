@@ -2,6 +2,7 @@ import "CoreLibs/graphics"
 import "CoreLibs/sprites"
 import "CoreLibs/timer"
 import "CoreLibs/object"
+import "CoreLibs/ui"
 
 -- Delay in milliseconds (e.g., 1000ms = 1 second)
 local crankDelay = 500 
@@ -197,5 +198,7 @@ end
 
 
 function playdate.update ()
-
+  if playdate.isCrankDocked() then
+    playdate.ui.crankIndicator:draw()
+  end
 end

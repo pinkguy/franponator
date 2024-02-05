@@ -4,5 +4,6 @@ description=Simple Franponais generator
 bundleID=com.organization.package
 version=0.0.1
 buildNumber=1
+imagePath=images/
 pdxversion=20100
-buildtime=760126902
+buildtime=760479822
